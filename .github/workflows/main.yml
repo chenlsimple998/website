@@ -21,7 +21,8 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./docs
-        run: npm install
+        run: |
+          npm run docs:build
 
       - name: Build VitePress site
         run: npm run docs:build
