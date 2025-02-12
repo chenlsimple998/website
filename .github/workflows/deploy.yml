@@ -1,7 +1,6 @@
 name: Deploy to GitHub Pages
 
 on:
-  # 当 main 分支有 push 操作时触发
   push:
     branches:
       - main
@@ -17,10 +16,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20.18.0
+          node-version: 18
           cache: 'npm'
 
       - name: Install dependencies
+        working-directory: ./docs 
         run: npm install
 
       - name: Build VitePress site
