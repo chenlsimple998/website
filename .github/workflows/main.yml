@@ -19,10 +19,14 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install npm
         working-directory: ./docs
         run: |
-          npm run docs:build
+          npm install
+
+      - name: Install dependencies
+        run: |
+          npm run docs:build     
 
       - name: Build VitePress site
         run: npm run docs:build
